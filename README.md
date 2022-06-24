@@ -17,11 +17,11 @@ Live : [https://twogrey.github.io/CoPiBoo---Color-Picker-Bookmarklet/](https://t
 * Fermeture automatique possible
 * Copie manuelle et copie automatique du code hexadécimal et RGB dans le presse-papiers
 
+![](https://twogrey.github.io/CoPiBoo---Color-Picker-Bookmarklet/assets/img/demo.gif)
+
 ## Notes
 
-Votre navigateur doit supporter l'API [https://developer.mozilla.org/en-US/docs/Web/API/EyeDropper_API"](EyeDropper). Jetez un oeil au support sur [https://caniuse.com/mdn-api_eyedropper](Can I Use).
-
-[ko-fi](https://twogrey.github.io/CoPiBoo---Color-Picker-Bookmarklet/assets/img/demo.gif)
+Votre navigateur doit supporter l'API [EyeDropper](https://developer.mozilla.org/en-US/docs/Web/API/EyeDropper_API). Jetez un oeil au support sur [Can I Use](https://caniuse.com/mdn-api_eyedropper).
 
 ## Contact
 
