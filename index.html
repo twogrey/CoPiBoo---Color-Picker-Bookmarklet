@@ -1,40 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demo - CoPiBoo - Color Picker Bookmarklet</title>
-    <style>
-      * { box-sizing: border-box }
-      body {
-        margin: 0;
-        line-height: 1.4;
-      }
-      main { 
-        display: grid; 
-        place-content: center; 
-        min-height: 100vh; 
-        padding: 2rem;
-        font-family: sans-serif;
-      }
-      main * + * { margin: 0 0 1.5rem }
-      button { font-size: 2rem; padding: .5em; }
-      h1 { font-weight: 400; text-align: center; }
-      span { color: #2980b9; font-weight: 700; font-variant-caps: small-caps; }
-      p { font-size: 1.25rem }
-    </style>
-  </head>
-  <body>
-    <main>
-      <h1>
-        <span>CoPiBoo.</span> 🎨💉👻<br>
-        (<span>Co</span>lor <span>Pi</span>cker <span>Boo</span>kmarklet)
-      </h1>
-      <p>Try out below...</p>
-      <button type="button" id="start">Pick a color</button>
-      <p>... or drag and drop <a id="bookmarklet" title="toto">CoPiBoo - Color picker</a> into your browser's bookmarks or favorites toolbar.</p>
-      <p>Your browser has to support the <a href="https://developer.mozilla.org/en-US/docs/Web/API/EyeDropper_API">EyeDropper API</a>. Check the support on <a href="https://caniuse.com/mdn-api_eyedropper">Can I Use</a>.</p>
-    </main>
-    <script src="assets/js/demo.min.js"></script>
-  </body>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Demo - CoPiBoo - Color Picker Bookmarklet</title>
+		<style>
+			* { box-sizing: border-box }
+			body {
+				margin: 0;
+				line-height: 1.4;
+			}
+			main { 
+				display: grid; 
+				place-content: center; 
+				min-height: 100vh; 
+				padding: 2rem;
+				font-family: sans-serif;
+			}
+			main * + * { margin: 0 0 1.5rem }  
+			main *:last-child { margin-bottom: 0 }  
+			button { 
+				font-size: 2rem; 
+				padding: .5em; 
+			}
+			h1 { 
+				margin-top: 0; 
+				font-weight: 400; 
+				text-align: center; 
+			}
+			span { 
+				color: #2980b9; 
+				font-weight: 700; 
+				font-variant-caps: small-caps; 
+			}
+			p { font-size: 1.25rem }
+		</style>
+	</head>
+	<body>
+		<main>
+			<h1>
+				<span>CoPiBoo.</span> 🎨💉👻<br>
+				(<span>Co</span>lor <span>Pi</span>cker <span>Boo</span>kmarklet)
+			</h1>
+			<p>Try out below...</p>
+			<button type="button" id="start">Pick a color</button>
+			<p>... or drag and drop <a id="bookmarklet" title="toto">CoPiBoo - Color picker</a> into your browser's bookmarks or favorites toolbar.</p>
+			<p>Your browser has to support the <a href="https://developer.mozilla.org/en-US/docs/Web/API/EyeDropper_API">EyeDropper API</a>. Check the support on <a href="https://caniuse.com/mdn-api_eyedropper">Can I Use</a>.</p>
+			<p><a href="https://github.com/twogrey/CoPiBoo---Color-Picker-Bookmarklet">Source code</a> · Author : <a href="https://twitter.com/twogrey">@twogrey</a></p>
+		</main>
+		<script src="assets/js/demo.min.js"></script>
+	</body>
 </html>

@@ -1,11 +1,11 @@
-let cpbt,
-	cpbt_autoClosing = sessionStorage.getItem('cpbt_enable_auto_closing') === 'true' ? true : false,
-	cpbt_lang = sessionStorage.getItem('cpbt_lang') !== null ? sessionStorage.getItem('cpbt_lang') : 'en',
-	cpbt_modal_size = sessionStorage.getItem('cpbt_modal_size') !== null ? sessionStorage.getItem('cpbt_modal_size') : '100',
-	cpbt_autoCopying = sessionStorage.getItem('cpbt_enable_auto_copying') !== null ? sessionStorage.getItem('cpbt_enable_auto_copying') : 'no';
+let copiboo,
+	options_autoClosing = sessionStorage.getItem('copiboo_enable_auto_closing') === 'true' ? true : false,
+	options_lang = sessionStorage.getItem('options_lang') !== null ? sessionStorage.getItem('options_lang') : 'en',
+	options_modal_size = sessionStorage.getItem('options_modal_size') !== null ? sessionStorage.getItem('options_modal_size') : '100',
+	options_autoCopying = sessionStorage.getItem('copiboo_enable_auto_copying') !== null ? sessionStorage.getItem('copiboo_enable_auto_copying') : 'no';
 
 // Define custom element
-class cpbTwogrey extends HTMLElement {
+class copibooElement extends HTMLElement {
   constructor() {
 	super();
 	const shadow = this.attachShadow({mode: 'open'});
@@ -331,41 +331,41 @@ class cpbTwogrey extends HTMLElement {
 						<div>  
 							<div class="form-group"> 
 								<label for="choose-lang" data-i18n data-i18n-en="Language" data-i18n-fr="Langue" data-i18n-ar="لغة"></label>
-								<select id="choose-lang" name="cpbt_lang">
+								<select id="choose-lang" name="options_lang">
 									<option value="en" lang="en" data-i18n data-i18n-en="English" data-i18n-fr="English (Anglais)" data-i18n-ar="English (الإنجليزية)">English</option>
 									<option value="fr" lang="fr" data-i18n data-i18n-en="Français (French)" data-i18n-fr="Français" data-i18n-ar="Français (الفرنسية)">Français (French)</option>
 									<option value="ar" lang="ar" data-i18n data-i18n-en="العربية (Arabic)" data-i18n-fr="العربية (Arabe)" data-i18n-ar="العربية">العربية (Arabic)</option>
 								</select>
 						  	</div>
-							<form class="form-group form-group--wrap" oninput="cpbt_modal_size_result.value=parseInt(cpbt_modal_size.value)+'%'">
+							<form class="form-group form-group--wrap" oninput="options_modal_size_result.value=parseInt(options_modal_size.value)+'%'">
 								<label for="set-modal-size" data-i18n data-i18n-en="Modal size" data-i18n-fr="Taille de la modale" data-i18n-ar="حجم مشروط"></label>
 								<div class="range-output">
-									<input type="range" id="set-modal-size" name="cpbt_modal_size" value="100" min="50" max="200">
-									<output name="cpbt_modal_size_result">100%</output>
+									<input type="range" id="set-modal-size" name="options_modal_size" value="100" min="50" max="200">
+									<output name="options_modal_size_result">100%</output>
 								</div>
 						  	</form>
 						  	<p class="instructions" data-i18n data-i18n-en="Modifications below will be applied on the next use of the bookmarklet." data-i18n-fr="Les modifications ci-après seront appliquées à la prochain exécution du bookmarklet." data-i18n-ar="سيتم تطبيق التعديلات أدناه على الاستخدام التالي للعلامة المرجعية."></p>
 							<div class="form-group"> 
-								<input type="checkbox" name="cpbt_enable_auto_closing" id="enable_auto_closing">
+								<input type="checkbox" name="copiboo_enable_auto_closing" id="enable_auto_closing">
 								<label for="enable_auto_closing" data-i18n data-i18n-en="Enable auto-closing" data-i18n-fr="Activer la fermeture automatique" data-i18n-ar="قم بتمكين الإغلاق التلقائي"></label>
 							</div>
 							<fieldset>
 								<legend data-i18n data-i18n-en="Auto-copying" data-i18n-fr="Copie automatique" data-i18n-ar="النسخ التلقائي"></legend>
 								<div class="form-group"> 
-									<input type="radio" name="cpbt_enable_auto_copying" id="enable_auto_copying_no" value="no" checked>
+									<input type="radio" name="copiboo_enable_auto_copying" id="enable_auto_copying_no" value="no" checked>
 									<label for="enable_auto_copying_no" data-i18n data-i18n-en="Disabled" data-i18n-fr="Désactivé" data-i18n-ar="عاجز"></label>
 								</div>
 								<div class="form-group"> 
-									<input type="radio" name="cpbt_enable_auto_copying" id="enable_auto_copying_hex" value="hex">
+									<input type="radio" name="copiboo_enable_auto_copying" id="enable_auto_copying_hex" value="hex">
 									<label for="enable_auto_copying_hex" data-i18n data-i18n-en="Enable Hex auto-copying" data-i18n-fr="Copier le code hexa" data-i18n-ar="تفعيل النسخ التلقائي لـ Hex"></label>
 								</div>
 								<div class="form-group"> 
-									<input type="radio" name="cpbt_enable_auto_copying" id="enable_auto_copying_rgb" value="rgb">
+									<input type="radio" name="copiboo_enable_auto_copying" id="enable_auto_copying_rgb" value="rgb">
 									<label for="enable_auto_copying_rgb" data-i18n data-i18n-en="Enable RGB auto-copying" data-i18n-fr="Copier le code RGB" data-i18n-ar="قم بتمكين النسخ التلقائي لـ RGB"></label>
 								</div>
 							</fieldset>
 							<p class="footer">
-								<a href="#" target="_blank" data-i18n data-i18n-en="Source code" data-i18n-fr="Code source" data-i18n-ar="مصدر الرمز"></a> <span aria-hidden="true">·</span> <a href="https://ko-fi.com/twogrey" target="_blank" data-i18n data-i18n-en="Support" data-i18n-fr="Soutenir" data-i18n-ar="دعم "></a> ☕
+								<a href="https://github.com/twogrey/CoPiBoo---Color-Picker-Bookmarklet" target="_blank" data-i18n data-i18n-en="Source code" data-i18n-fr="Code source" data-i18n-ar="مصدر الرمز"></a> <span aria-hidden="true">·</span> <a href="https://ko-fi.com/twogrey" target="_blank" data-i18n data-i18n-en="Support" data-i18n-fr="Soutenir" data-i18n-ar="دعم "></a> ☕
 							</p>
 						</div>
 					</detail>
@@ -379,7 +379,7 @@ class cpbTwogrey extends HTMLElement {
 
 // from https://awik.io/determine-color-bright-dark-using-javascript/
 // Determine if picked color is rather light or dark shade
-function cpbt_lightOrDark(color) {
+function lightOrDark(color) {
 
 	// Variables for red, green, blue values
 	var r, g, b, hsp;
@@ -425,7 +425,7 @@ function cpbt_lightOrDark(color) {
 
 // from https://convertingcolors.com/blog/article/convert_hex_to_rgb_with_javascript.html
 // Convert from hexa to rgb
-function cpbt_hexToRGB(h, wo_fn) {
+function hexToRGB(h, wo_fn) {
 	var aRgbHex = h.replace('#','').match(/.{1,2}/g);
 	var aRgb = [
 		parseInt(aRgbHex[0], 16),
@@ -439,13 +439,13 @@ function cpbt_hexToRGB(h, wo_fn) {
 }
 
 // Remove custom element
-function cpbt_removeContainer() {
-	document.querySelector('cpb-twogrey').parentNode.removeChild(document.querySelector('cpb-twogrey'));
+function removeContainer() {
+	document.querySelector('copi-bookmarklet').parentNode.removeChild(document.querySelector('copi-bookmarklet'));
 }
 
 // Set lang & dir
-function cpbt_i18n(lang) {
-	cpbt.querySelectorAll('[data-i18n]').forEach(function(elmt) {
+function setI18n(lang) {
+	copiboo.querySelectorAll('[data-i18n]').forEach(function(elmt) {
 		let text = elmt.getAttribute('data-i18n-'+lang);
 		if(elmt.getAttribute('title'))
 			elmt.setAttribute('title', text);
@@ -454,38 +454,38 @@ function cpbt_i18n(lang) {
 		else
 			elmt.textContent = text;
 	});
-	cpbt.querySelector('section').setAttribute('lang', lang);
+	copiboo.querySelector('section').setAttribute('lang', lang);
 	if(lang == 'ar')
-		cpbt.querySelector('section').setAttribute('dir', 'rtl');
+		copiboo.querySelector('section').setAttribute('dir', 'rtl');
 	else
-		cpbt.querySelector('section').removeAttribute('dir');
+		copiboo.querySelector('section').removeAttribute('dir');
 }
 
 // Set size
-function cpbt_updateSize(size) {
-	cpbt.querySelector('section').style.setProperty('--custom-fs', size);
+function updateSize(size) {
+	copiboo.querySelector('section').style.setProperty('--custom-fs', size);
 }
 
 // Set picked color & some others values & text
-function cpbt_set(colorHex) {
-	cpbt.querySelector('.hex').textContent = colorHex;
-	cpbt.querySelector('.hex-sr').textContent = colorHex;
-	cpbt.querySelector('.rgb').textContent = cpbt_hexToRGB(colorHex);
-	cpbt.querySelector('section').style.setProperty("--text-color",cpbt_lightOrDark(colorHex) === 'dark' ? '#fff' : '#000');
-	cpbt.querySelector('section').style.setProperty("--color", colorHex);
-	cpbt.querySelector('section').style.setProperty("--color-rgb", cpbt_hexToRGB(colorHex, true));
+function baseSet(colorHex) {
+	copiboo.querySelector('.hex').textContent = colorHex;
+	copiboo.querySelector('.hex-sr').textContent = colorHex;
+	copiboo.querySelector('.rgb').textContent = hexToRGB(colorHex);
+	copiboo.querySelector('section').style.setProperty("--text-color",lightOrDark(colorHex) === 'dark' ? '#fff' : '#000');
+	copiboo.querySelector('section').style.setProperty("--color", colorHex);
+	copiboo.querySelector('section').style.setProperty("--color-rgb", hexToRGB(colorHex, true));
 }
 
 // Freeze current animations (for the "5s before fade out" option)
-function cpbt_pauseAnimations() {
-	cpbt.querySelector('section').style.animationPlayState = 'paused';
-	cpbt.querySelector('.timer').style.animationPlayState = 'paused';
+function pauseAnimations() {
+	copiboo.querySelector('section').style.animationPlayState = 'paused';
+	copiboo.querySelector('.timer').style.animationPlayState = 'paused';
 }
 
 // Resume current animations (for the "5s before fade out" option)
-function cpbt_runAnimations() {
-	cpbt.querySelector('section').style.animationPlayState = 'running';
-	cpbt.querySelector('.timer').style.animationPlayState = 'running';
+function runAnimations() {
+	copiboo.querySelector('section').style.animationPlayState = 'running';
+	copiboo.querySelector('.timer').style.animationPlayState = 'running';
 }
 
 
@@ -496,56 +496,56 @@ if (!window.EyeDropper) {
   eyeDropper.open().then(result => {
 
 	// Remove previous modal
-	if(document.querySelector('cpb-twogrey'))
-		cpbt_removeContainer();
+	if(document.querySelector('copi-bookmarklet'))
+		removeContainer();
 
 	// Build modal
-	document.body.innerHTML += '<cpb-twogrey></cpb-twogrey>';
-	if(customElements.get('cpb-twogrey') === undefined) {
-		customElements.define('cpb-twogrey', cpbTwogrey);
+	document.body.innerHTML += '<copi-bookmarklet></copi-bookmarklet>';
+	if(customElements.get('copi-bookmarklet') === undefined) {
+		customElements.define('copi-bookmarklet', copibooElement);
 	}
-	cpbt = document.querySelector('cpb-twogrey').shadowRoot;
-	cpbt_updateSize(cpbt_modal_size);
-	cpbt_i18n(cpbt_lang);
-	cpbt.querySelector('.hex-sr').focus();
+	copiboo = document.querySelector('copi-bookmarklet').shadowRoot;
+	updateSize(options_modal_size);
+	setI18n(options_lang);
+	copiboo.querySelector('.hex-sr').focus();
 
 	// If auto-closing is disabled, hide timer element
-	if(!cpbt_autoClosing) {
-		cpbt.querySelector('.timer').style.display = 'none';
-		cpbt.querySelector('section').style.setProperty('--timer-h', '0px');
-		cpbt.querySelector('section').style.animation = 'none';
+	if(!options_autoClosing) {
+		copiboo.querySelector('.timer').style.display = 'none';
+		copiboo.querySelector('section').style.setProperty('--timer-h', '0px');
+		copiboo.querySelector('section').style.animation = 'none';
 	}
 
 	// Show color & values
-	cpbt.querySelector('[type=color]').value = result.sRGBHex;
-	cpbt_set(result.sRGBHex);
+	copiboo.querySelector('[type=color]').value = result.sRGBHex;
+	baseSet(result.sRGBHex);
 
 	// If auto-closing is enabled, remove modal after the fade out animation 
-	cpbt.querySelector('section').addEventListener('animationend', function(e) {
+	copiboo.querySelector('section').addEventListener('animationend', function(e) {
 		if(e.target !== this) return;
-		cpbt_removeContainer();
+		removeContainer();
 	});
 
 	// Pause the "5s before fade out" while hovering or focusing
-	if(cpbt_autoClosing) {
-		cpbt.querySelector('section').addEventListener('mouseenter', cpbt_pauseAnimations);
-		cpbt.querySelector('section').addEventListener('focusin', cpbt_pauseAnimations);
-		cpbt.querySelector('section').addEventListener('mouseleave', cpbt_runAnimations);
-		cpbt.querySelector('section').addEventListener('focusout', cpbt_runAnimations);
+	if(options_autoClosing) {
+		copiboo.querySelector('section').addEventListener('mouseenter', pauseAnimations);
+		copiboo.querySelector('section').addEventListener('focusin', pauseAnimations);
+		copiboo.querySelector('section').addEventListener('mouseleave', runAnimations);
+		copiboo.querySelector('section').addEventListener('focusout', runAnimations);
 	}
 
 	// Close the modal manually
-	cpbt.querySelector('.close').addEventListener('click', cpbt_removeContainer);
+	copiboo.querySelector('.close').addEventListener('click', removeContainer);
 
 	// Fill options with session storage values
-	cpbt.querySelector('#choose-lang').value = cpbt_lang;
-	cpbt.querySelector('#set-modal-size').value = cpbt_modal_size;
-	cpbt.querySelector('[name="cpbt_modal_size_result"]').textContent = cpbt_modal_size + '%';
-	cpbt.querySelector('#enable_auto_closing').checked = cpbt_autoClosing;
-	cpbt.querySelector('[name="cpbt_enable_auto_copying"][value="'+cpbt_autoCopying+'"]').checked = true;
+	copiboo.querySelector('#choose-lang').value = options_lang;
+	copiboo.querySelector('#set-modal-size').value = options_modal_size;
+	copiboo.querySelector('[name="options_modal_size_result"]').textContent = options_modal_size + '%';
+	copiboo.querySelector('#enable_auto_closing').checked = options_autoClosing;
+	copiboo.querySelector('[name="copiboo_enable_auto_copying"][value="'+options_autoCopying+'"]').checked = true;
 
 	// Set session storages values depending on user preferences
-	cpbt.querySelectorAll('details :is(input, select)').forEach(function(input) {
+	copiboo.querySelectorAll('details :is(input, select)').forEach(function(input) {
 		input.addEventListener('change', function(e) {
 			if(e.target.type == 'radio' || e.target.type == 'select-one' || e.target.type == 'range') {
 				sessionStorage.setItem(this.getAttribute('name'), this.value);
@@ -556,32 +556,32 @@ if (!window.EyeDropper) {
 	});
 
 	// Update lang
-	cpbt.querySelector('#choose-lang').addEventListener('change', function() {
-		cpbt_i18n(this.value);
+	copiboo.querySelector('#choose-lang').addEventListener('change', function() {
+		setI18n(this.value);
 	});
 
 	// Update size
-	cpbt.querySelector('#set-modal-size').addEventListener('change', function() {
-		cpbt_updateSize(this.value);
+	copiboo.querySelector('#set-modal-size').addEventListener('change', function() {
+		updateSize(this.value);
 	});
 
 	// Copy Hex or RGB color to clipboard
-	if(cpbt_autoCopying == 'hex') {
+	if(options_autoCopying == 'hex') {
 		navigator.clipboard.writeText(result.sRGBHex);
-	} else if(cpbt_autoCopying == 'rgb') {
-		navigator.clipboard.writeText(cpbt_hexToRGB(result.sRGBHex));
+	} else if(options_autoCopying == 'rgb') {
+		navigator.clipboard.writeText(hexToRGB(result.sRGBHex));
 	}
 
 	// Manual copy
-	cpbt.querySelectorAll('.copy').forEach(function(btn) {
+	copiboo.querySelectorAll('.copy').forEach(function(btn) {
 		btn.addEventListener('click', function() {
-			navigator.clipboard.writeText(cpbt.querySelector(this.getAttribute('data-copy-target')).textContent);
+			navigator.clipboard.writeText(copiboo.querySelector(this.getAttribute('data-copy-target')).textContent);
 		});
 	});
 
 	// Update modal text if a new color is picked by using input[type=color]
-	cpbt.querySelector('[type=color]').addEventListener('input', function() {
-		cpbt_set(this.value);
+	copiboo.querySelector('[type=color]').addEventListener('input', function() {
+		baseSet(this.value);
 	});
 
   }).catch(error => {
