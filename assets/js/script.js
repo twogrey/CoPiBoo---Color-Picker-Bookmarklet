@@ -184,7 +184,7 @@ class copibooElement extends HTMLElement {
 			align-items: center; 
 			padding-inline-end: var(--gap); 
 			border-radius: 0.25em; 
-			background-color: rgba(var(--color-rgb), 0.25);
+			background: linear-gradient(rgb(0 0 0 / 2.5%),rgb(0 0 0 / 2.5%)) rgba(var(--color-rgb), 0.25);
 		}
 
 		.copy { 
@@ -197,7 +197,7 @@ class copibooElement extends HTMLElement {
 			border-radius: inherit; 
 			border: 0; 
 			font-size: 1em; 
-			background-color: var(--color); 
+			background: linear-gradient(rgb(0 0 0 / 5%),rgb(0 0 0 / 5%)) var(--color); 
 			color: var(--text-color); 
 			outline-offset: -0.1875em; 
 		}
@@ -221,7 +221,7 @@ class copibooElement extends HTMLElement {
 			border-block-start: var(--details_btw) solid var(--color); 
 			margin-block-start: var(--p); 
 			font-size: 0.875em; 
-			background-color: rgba(var(--color-rgb), 0.1)
+			background: linear-gradient(rgb(0 0 0 / 2.5%),rgb(0 0 0 / 2.5%)) rgba(var(--color-rgb), 0.1)
 		}
 
 		details > div::before { 
@@ -500,7 +500,8 @@ if (!window.EyeDropper) {
 		removeContainer();
 
 	// Build modal
-	document.body.innerHTML += '<copi-bookmarklet></copi-bookmarklet>';
+	let copiBookmarkletElement = document.createElement('copi-bookmarklet');
+	document.body.appendChild(copiBookmarkletElement);
 	if(customElements.get('copi-bookmarklet') === undefined) {
 		customElements.define('copi-bookmarklet', copibooElement);
 	}
