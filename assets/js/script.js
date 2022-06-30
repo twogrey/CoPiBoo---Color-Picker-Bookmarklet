@@ -1,8 +1,8 @@
 let copiboo,
-	options_autoClosing = sessionStorage.getItem('copiboo_enable_auto_closing') === 'true' ? true : false,
-	options_lang = sessionStorage.getItem('options_lang') !== null ? sessionStorage.getItem('options_lang') : 'en',
-	options_modal_size = sessionStorage.getItem('options_modal_size') !== null ? sessionStorage.getItem('options_modal_size') : '100',
-	options_autoCopying = sessionStorage.getItem('copiboo_enable_auto_copying') !== null ? sessionStorage.getItem('copiboo_enable_auto_copying') : 'no';
+	options_autoClosing = localStorage.getItem('copiboo_enable_auto_closing') === 'true' ? true : false,
+	options_lang = localStorage.getItem('options_lang') !== null ? localStorage.getItem('options_lang') : 'en',
+	options_modal_size = localStorage.getItem('options_modal_size') !== null ? localStorage.getItem('options_modal_size') : '100',
+	options_autoCopying = localStorage.getItem('copiboo_enable_auto_copying') !== null ? localStorage.getItem('copiboo_enable_auto_copying') : 'no';
 
 // Define custom element
 class copibooElement extends HTMLElement {
@@ -98,6 +98,7 @@ class copibooElement extends HTMLElement {
 			border-radius: 0.5em; 
 			font-size: min(calc(1rem * (var(--custom-fs) / 100)), 4.2vw); 
 			font-family: system-ui; 
+			line-height: 1.4,
 			color: #000; 
 			background: linear-gradient(rgb(0 0 0 / 5%),rgb(0 0 0 / 5%)) rgba(var(--color-rgb), 0.25); 
 			backdrop-filter: blur(5px); 
@@ -329,6 +330,7 @@ class copibooElement extends HTMLElement {
 					<details>
 						<summary data-i18n data-i18n-en="Options" data-i18n-fr="Options" data-i18n-ar="والخيارات"></summary>
 						<div>  
+					  	<p class="instructions" data-i18n data-i18n-en="These options are saved on the current domain." data-i18n-fr="Ces options sont conservées sur le domaine en cours." data-i18n-ar="يتم حفظ هذه الخيارات في المجال الحالي."></p>
 							<div class="form-group"> 
 								<label for="choose-lang" data-i18n data-i18n-en="Language" data-i18n-fr="Langue" data-i18n-ar="لغة"></label>
 								<select id="choose-lang" name="options_lang">
@@ -538,20 +540,20 @@ if (!window.EyeDropper) {
 	// Close the modal manually
 	copiboo.querySelector('.close').addEventListener('click', removeContainer);
 
-	// Fill options with session storage values
+	// Fill options with local storage values
 	copiboo.querySelector('#choose-lang').value = options_lang;
 	copiboo.querySelector('#set-modal-size').value = options_modal_size;
 	copiboo.querySelector('[name="options_modal_size_result"]').textContent = options_modal_size + '%';
 	copiboo.querySelector('#enable_auto_closing').checked = options_autoClosing;
 	copiboo.querySelector('[name="copiboo_enable_auto_copying"][value="'+options_autoCopying+'"]').checked = true;
 
-	// Set session storages values depending on user preferences
+	// Set local storages values depending on user preferences
 	copiboo.querySelectorAll('details :is(input, select)').forEach(function(input) {
 		input.addEventListener('change', function(e) {
 			if(e.target.type == 'radio' || e.target.type == 'select-one' || e.target.type == 'range') {
-				sessionStorage.setItem(this.getAttribute('name'), this.value);
+				localStorage.setItem(this.getAttribute('name'), this.value);
 			} else if(e.target.type == 'checkbox') {
-				sessionStorage.setItem(this.getAttribute('name'), this.checked);
+				localStorage.setItem(this.getAttribute('name'), this.checked);
 			}
 		});
 	});

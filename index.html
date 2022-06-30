@@ -14,6 +14,8 @@
 				display: grid; 
 				place-content: center; 
 				min-height: 100vh; 
+				width: min(100%, 64rem);
+				margin: auto;
 				padding: 2rem;
 				font-family: sans-serif;
 			}
@@ -44,7 +46,8 @@
 			</h1>
 			<p>Try out below...</p>
 			<button type="button" id="start">Pick a color</button>
-			<p>... or drag and drop <a id="bookmarklet">CoPiBoo - Color picker</a> into your browser's bookmarks or favorites toolbar.</p>
+			<p>... or else drag and drop one of those links <a id="bookmarklet">CoPiBoo - Color picker (not-URL based)</a> / <a href="javascript:(function(){var el=document.createElement('script');el.src='https://twogrey.github.io/CoPiBoo---Color-Picker-Bookmarklet/assets/js/script.min.js';document.body.appendChild(el);})();">CoPiBoo - Color picker (URL based)</a> into your browser's bookmarks or favorites toolbar.</p>
+			<p>You would use the not-URL version if you encounter some <abbr title="Content Security Policy">CSP</abbr> directives.</p>
 			<p>Your browser has to support the <a href="https://developer.mozilla.org/en-US/docs/Web/API/EyeDropper_API">EyeDropper API</a>. Check the support on <a href="https://caniuse.com/mdn-api_eyedropper">Can I Use</a>.</p>
 			<p><a href="https://github.com/twogrey/CoPiBoo---Color-Picker-Bookmarklet">Source code</a> · Author : <a href="https://twitter.com/twogrey">@twogrey</a></p>
 		</main>
