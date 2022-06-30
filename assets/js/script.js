@@ -98,7 +98,7 @@ class copibooElement extends HTMLElement {
 			border-radius: 0.5em; 
 			font-size: min(calc(1rem * (var(--custom-fs) / 100)), 4.2vw); 
 			font-family: system-ui; 
-			line-height: 1.4,
+			line-height: 1.4;
 			color: #000; 
 			background: linear-gradient(rgb(0 0 0 / 5%),rgb(0 0 0 / 5%)) rgba(var(--color-rgb), 0.25); 
 			backdrop-filter: blur(5px); 
